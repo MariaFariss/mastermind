@@ -1,0 +1,141 @@
+ *aleatoire()
+Utilitaires: entier: *tab
+             entier v
+Début:			 
+    pour i allant de 1 à 4 par pas de 1:
+        tant que( true):
+	         v=rand()%16
+             si (v=7 ou v=10 ou v=11 ou v=12 ou v=14 ou v=15)
+			      tab[i] <-- v
+				break
+			fin si	
+		fin tant que
+	fin pour
+    i++	
+	retourner tab
+fin
+
+void carre(color)
+debut 
+    textbackground(color)
+    printf(" ")
+    textbackground(0)	
+fin
+
+
+couleur()
+utilitaires
+    entier *tab <-- aleatoire() 
+	entier i
+début	
+    Pour i allant de 1 à 4 par pas de 1
+        si(tab[i]=15)
+                afficher("BL ")
+        si(tab[i]=14)
+                afficher("JA ")
+        si(tab[i]=12)
+                afficher("RO ")
+        si(tab[i]=10)
+                afficher("VE ")
+        si(tab[i]=7)
+                afficher("GR ")
+        si(tab[i]=11)
+            afficher("CY ")			
+        fin si
+    fin pour
+fin
+
+
+ main()
+utilitaires
+          entier: randomUtili1 <--0, randomUtili2<--0, randomUtili3<--0, randomUtili4<--0
+          entier: *tab, i
+début:		  
+	tab=aleatoire()	
+    booléen choice1<--false, choice2<--false, choice3<--false, choice4<--false
+    afficher("*****bienvenue sur mastermind*****\n")
+    pour i allant de 1 à 10 par pas de 1
+        FILE *fp
+        caractère nom[100]
+        caractère prenom[100]
+        fp<-- fopen("mastermind.txt", "w")
+        afficher_dans_fichier(fp,"le nom du joueur est:\n ")
+        afficher( "veuillez entrer votre nom:\n")
+        lire(nom)
+        printf("veuillez entrer votre prenom\n")
+        lire( prenom)
+        afficher_dans_fichier(fp,nom, prenom)
+         
+		afficher("veuillez choisir votre nombre parmi la liste suivante {7,10, 11, 12, 14, 15}: " )
+        lire(randomUtili1)
+        afficher("veuillez choisir votre 2ème nombre parmi la liste suivante {7,10, 11, 12, 14, 15}: " )
+        lire(randomUtili2)
+        afficher("veuillez choisir votre 3 ème nombre parmi la liste suivante {7,10, 11, 12, 14, 15}: ")
+        lire(randomUtili3)
+        afficher("veuillez choisir votre 4 ème nombre parmi la liste suivante {7,10, 11, 12, 14, 15}: " )
+        lire(randomUtili4)
+                si (randomUtili1=tab[0])
+                   afficher("=")
+                   choice1<--true
+
+
+                si non si (randomUtili1=tab[1] ou randomUtili1=tab[2] ou randomUtili1=tab[3]) 
+                    afficher("O")
+
+                si non
+                    afficher("X")
+
+                fin si
+				
+				si (randomUtili2=tab[0])
+                   afficher("=")
+                   choice1<--true
+
+
+                si non si (randomUtili2=tab[1] ou randomUtili2=tab[2] ou randomUtili2=tab[3]) 
+                    afficher("O")
+
+                si non
+                    afficher("X") 
+                fin si
+				
+				si (randomUtili3=tab[0])
+                   afficher("=")
+                   choice1<--true
+
+
+                si non si (randomUtili3=tab[1] ou randomUtili3=tab[2] ou randomUtili3=tab[3]) 
+                    afficher("O")
+
+                si non
+                    afficher("X")
+     
+	            fin si
+				
+				si (randomUtili4=tab[0])
+                   afficher("=")
+                   choice1<--true
+
+
+                si non si (randomUtili4=tab[1] ou randomUtili4=tab[2] ou randomUtili4=tab[3]) 
+                    afficher("O")
+
+                si non
+                    afficher("X")
+				fin si	
+		
+        si (choice1=true && choice2=true && choice3=true && choice4=true)
+
+            afficher("~~~~~~~~~Félicitation~~~~~~~~~~\n")
+            tableAff()
+            afficher("\n Félicitation vous avez réussi après", i+1 ,"essai ")
+            afficher_dans_fichier(fp, " Félicitation vous avez réussi aprés",i+1 ,"essai ")
+            fclose(fp)
+            break
+            fin si
+
+        si(i=9){
+           afficher("la bonne solution est : \n" , tab[0], tab[1], tab[2], tab[3])
+        fin si
+    fin pour
+fin	

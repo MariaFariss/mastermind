@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1634677695 source:c:\users\fire-hacker\desktop\progarmme&\micro projet 1\conio.c
+	<stdio.h>
+	<stdlib.h>
+	<unistd.h>
+	<windows.h>
+	<string.h>
+	"conio.h"
+
+1634677699 c:\users\fire-hacker\desktop\progarmme&\micro projet 1\conio.h
+	<stdio.h>
+
